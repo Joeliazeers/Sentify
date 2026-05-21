@@ -93,16 +93,3 @@ YoutubeSentimentAnalysis/
 5. Masukkan ke `.env`: `YOUTUBE_API_KEY=your_key`
 
 ---
-
-## Features
-
-- ✅ Scraping komentar YouTube (hingga 10.000)
-- ✅ Filter otomatis: spam, promo link, emoji-only
-- ✅ Sentimen multilingual: Indonesia + Inggris
-- ✅ Donut chart interaktif
-- ✅ Statistik detail (total, waktu, kecepatan)
-- ✅ Top 5 komentar representatif per sentimen
-- ✅ Word cloud terpisah positif/negatif
-- ✅ Cache hasil (1 jam per video)
-- ✅ Non-blocking UI (background task + polling)
-- ✅ Docker ready
