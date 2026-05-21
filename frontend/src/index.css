@@ -1,0 +1,173 @@
+/* ─── Google Fonts ────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── shadcn/ui CSS variables — Dark Theme (Sentify) ── */
+    --background:        222 24% 6%;
+    --foreground:        210 38% 96%;
+
+    --card:              222 20% 9%;
+    --card-foreground:   210 38% 96%;
+
+    --popover:           222 20% 10%;
+    --popover-foreground: 210 38% 96%;
+
+    --primary:           0 84% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary:         222 17% 13%;
+    --secondary-foreground: 210 38% 96%;
+
+    --muted:             222 17% 13%;
+    --muted-foreground:  215 14% 50%;
+
+    --accent:            222 17% 16%;
+    --accent-foreground: 210 38% 96%;
+
+    --destructive:       0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:            222 17% 13%;
+    --input:             222 17% 14%;
+    --ring:              0 84% 60%;
+
+    --radius: 0.875rem;
+
+    /* ── Sentiment colors ── */
+    --positive:          158 78% 50%;
+    --positive-foreground: 158 60% 8%;
+    --positive-muted:    158 50% 9%;
+
+    --neutral-s:         215 14% 55%;
+    --neutral-s-muted:   217 18% 14%;
+
+    --negative:          0 86% 67%;
+    --negative-foreground: 0 60% 10%;
+    --negative-muted:    0 50% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100vh;
+    /* Dot-grid + top red aurora */
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -8%, hsl(0 84% 60% / 0.08) 0%, transparent 60%),
+      radial-gradient(circle, hsl(var(--border) / 0.65) 1px, transparent 1px);
+    background-size: 100% 100%, 28px 28px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-background; }
+  ::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.45); }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .font-sans {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* ── Gradient text (red → orange → amber) ── */
+  .gradient-text {
+    background: linear-gradient(120deg, hsl(0 84% 62%), hsl(20 96% 58%), hsl(38 94% 62%));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  /* ── Glassmorphism card ── */
+  .glass {
+    background: hsl(var(--card) / 0.65);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid hsl(var(--border) / 0.85);
+  }
+
+  /* ── Glow utilities ── */
+  .glow-primary {
+    box-shadow: 0 0 22px hsl(0 84% 60% / 0.32), 0 0 60px hsl(0 84% 60% / 0.08);
+  }
+  .glow-primary-hover:hover {
+    box-shadow: 0 4px 36px hsl(0 84% 60% / 0.42), 0 0 80px hsl(0 84% 60% / 0.12);
+  }
+  .glow-positive {
+    box-shadow: 0 0 20px hsl(158 78% 50% / 0.22);
+  }
+  .glow-negative {
+    box-shadow: 0 0 20px hsl(0 86% 67% / 0.22);
+  }
+
+  /* ── Skeleton shimmer ── */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--card)) 25%,
+      hsl(var(--accent)) 50%,
+      hsl(var(--card)) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* ── Section heading accent bar ── */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .section-heading::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 1.15em;
+    border-radius: 999px;
+    background: hsl(var(--primary));
+    flex-shrink: 0;
+  }
+
+  /* ── Gradient divider ── */
+  .divider-glow {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.35) 30%,
+      hsl(var(--primary) / 0.35) 70%,
+      transparent 100%
+    );
+  }
+
+  /* ── Animation delays ── */
+  .delay-75  { animation-delay: 75ms; }
+  .delay-100 { animation-delay: 100ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+}

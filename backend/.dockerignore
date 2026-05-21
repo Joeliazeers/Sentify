@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+*.pyo
+.env
+sentify_db.sqlite3
+local_cache/
+.git
