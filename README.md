@@ -1,4 +1,4 @@
-# SentiTube — YouTube Sentiment Analysis
+# Sentify — YouTube Sentiment Analysis
 
 Analisis sentimen komentar YouTube menggunakan AI multilingual (XLM-RoBERTa).
 
